@@ -4,7 +4,7 @@ INIAD Moocsからスライドをダウンロードするツール
 
 ## 使い方
 
-1. [Releases]("https://github.com/yu7400ki/moocs-slide-dl/release")から`slide_dl.exe`をダウンロードしてくる
+1. [Releases](https://github.com/yu7400ki/moocs-slide-dl/release)から`slide_dl.exe`をダウンロードしてくる
 1. INIADのアカウントでログインする
 1. コースとかを選択して`Download`をクリック
 
