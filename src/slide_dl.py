@@ -1,4 +1,5 @@
 import os
+import time
 
 import PySimpleGUI as sg
 from iniad import Course, Lecture, Moocs, Page
@@ -90,20 +91,24 @@ def download(selected_course, selected_group, selected_lecture, selected_page, c
             for lecture in course.lectures():
                 for page in lecture.pages():
                     dl_slides(page, output, temp)
+                    time.sleep(1)
     elif selected_group == "All":
         course = courses[selected_course]
         for lecture in course.lectures():
             for page in lecture.pages():
                 dl_slides(page, output, temp)
+                time.sleep(1)
     elif selected_lecture == "All":
         lectures = groups[selected_group]
         for lecture in lectures.values():
             for page in lecture.pages():
                 dl_slides(page, output, temp)
+                time.sleep(1)
     elif selected_page == "All":
         lecture = groups[selected_group][selected_lecture]
         for page in lecture.pages():
             dl_slides(page, output, temp)
+            time.sleep(1)
     else:
         page = pages[selected_page]
         dl_slides(page, output, temp)

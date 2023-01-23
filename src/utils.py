@@ -1,6 +1,5 @@
 import os
 import shutil
-import time
 import uuid
 from concurrent.futures import ThreadPoolExecutor
 
@@ -25,7 +24,7 @@ def ext(b: bytes) -> str:
 
 def dl_img(url: str, dir: str):
     try:
-        response = requests.get(url)
+        response = requests.get(url, timeout=3)
         extension = ext(response.content)
         path = os.path.join(dir, f"{uuid.uuid4()}.{extension}")
         with open(path, "wb") as f:
@@ -74,23 +73,17 @@ def dl_slides(page: Page, out: str, temp: str):
     os.makedirs(write, exist_ok=True)
     slides = list(page.slides2svg())
 
-    time.sleep(1)
     for i, slide in enumerate(slides):
         os.makedirs(temp)
         futures = []
-        with ThreadPoolExecutor(max_workers=4) as executor:
-            for j, svg in enumerate(slide):
-                future = executor.submit(svg2pdf, svg, temp)
-                futures.append(future)
-                if len(slides) > 1:
-                    print(f"Converting SVG to PDF...({page.course} - {page.lecture} - {page.name} - {i} - {j})")
-                else:
-                    print(f"Converting SVG to PDF...({page.course} - {page.lecture} - {page.name} - {j})")
-                time.sleep(2)
         if len(slides) > 1:
             print(f"Writing PDF...({page.course} - {page.lecture} - {page.name} - {i})")
         else:
             print(f"Writing PDF...({page.course} - {page.lecture} - {page.name})")
+        with ThreadPoolExecutor(max_workers=8) as executor:
+            for svg in slide:
+                future = executor.submit(svg2pdf, svg, temp)
+                futures.append(future)
         merger = PyPDF2.PdfMerger()
         [merger.append(future.result()) for future in futures]
         if len(slides) > 1:
