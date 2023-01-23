@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "moocs-slide-dl"
+version = "0.0.1"
+description = "INIAD Moocsからスライドをダウンロードするツール"
+authors = ["yu7400ki <yu7400ki@gmail.com>"]
+readme = "README.md"
+license = "LGPL-3.0"
+
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.12"
+svglib = "^1.5.1"
+PyPDF2 = "^3.0.1"
+iniad = {git = "https://github.com/yu7400ki/INIADLib.git", rev = "v0.0.2"}
+PySimpleGUI = "^4.60.4"
+pyinstaller = "^5.7.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.12.0"
+isort = "^5.11.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.black]
+target-version = ["py311"]
+line-length = 119
+include = "\\.pyi?$"
+exclude = """
+(
+      \\.git
+    | \\.venv
+    | \\**/__init__.py
+)
+"""
+
+[tool.isort]
+py_version = 311
+profile = "black"
+line_length = 119

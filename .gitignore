@@ -1,0 +1,13 @@
+.venv/
+.vscode/
+
+**/__pycache__
+**/*.pyc
+.mypy_cache
+
+.env
+**/*.pickle
+
+build/
+dist/
+**/*.spec
