@@ -110,7 +110,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "iniad"
-version = "0.0.2"
+version = "0.0.1"
 description = "INIAD関連のなんか"
 category = "main"
 optional = false
@@ -124,8 +124,8 @@ requests = "^2.28.2"
 [package.source]
 type = "git"
 url = "https://github.com/yu7400ki/INIADLib.git"
-reference = "v0.0.2"
-resolved_reference = "6bb7858b60621c439c839daf83854feb223682a5"
+reference = "v0.0.1"
+resolved_reference = "942821bab0f8f0b418eb153f16a6e6eb4efb6047"
 
 [[package]]
 name = "isort"
@@ -383,7 +383,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.11,<3.12"
-content-hash = "b60ac4e98c27673f9a3fbf83017d560bd62c774667fbd542837b8f471992e50d"
+content-hash = "f066e712e050437ef1741cca2fed5de55964944cd5b878436f5c6002ac81d8e1"
 
 [metadata.files]
 altgraph = [

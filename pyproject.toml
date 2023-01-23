@@ -11,7 +11,7 @@ license = "LGPL-3.0"
 python = ">=3.11,<3.12"
 svglib = "^1.5.1"
 PyPDF2 = "^3.0.1"
-iniad = {git = "https://github.com/yu7400ki/INIADLib.git", rev = "v0.0.2"}
+iniad = {git = "https://github.com/yu7400ki/INIADLib.git", rev = "v0.0.1"}
 PySimpleGUI = "^4.60.4"
 pyinstaller = "^5.7.0"
 
