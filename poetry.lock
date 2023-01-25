@@ -218,20 +218,6 @@ docs = ["furo (>=2022.12.7)", "proselint (>=0.13)", "sphinx (>=5.3)", "sphinx-au
 test = ["appdirs (==1.4.4)", "covdefaults (>=2.2.2)", "pytest (>=7.2)", "pytest-cov (>=4)", "pytest-mock (>=3.10)"]
 
 [[package]]
-name = "plyer"
-version = "2.1.0"
-description = "Platform-independent wrapper for platform-dependent APIs"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.extras]
-android = ["pyjnius"]
-dev = ["flake8", "mock"]
-ios = ["pyobjus"]
-macosx = ["pyobjus"]
-
-[[package]]
 name = "pyinstaller"
 version = "5.7.0"
 description = "PyInstaller bundles a Python application and all its dependencies into a single package."
@@ -394,10 +380,29 @@ category = "main"
 optional = false
 python-versions = "*"
 
+[[package]]
+name = "win11toast"
+version = "0.32"
+description = "Toast notifications for Windows 10 and 11"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+winsdk = "*"
+
+[[package]]
+name = "winsdk"
+version = "1.0.0b7"
+description = "Python bindings for the Windows SDK"
+category = "main"
+optional = false
+python-versions = "*"
+
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.11,<3.12"
-content-hash = "68b142e4a1b868b64adbaf29ae806912d1386fdaccf3b1959bab9f68ec20080b"
+content-hash = "60abdc2ae31458ce21875971f38117bca43dd2c0b5aa720b98d75d1e81f3b4a4"
 
 [metadata.files]
 altgraph = [
@@ -717,10 +722,6 @@ platformdirs = [
     {file = "platformdirs-2.6.2-py3-none-any.whl", hash = "sha256:83c8f6d04389165de7c9b6f0c682439697887bca0aa2f1c87ef1826be3584490"},
     {file = "platformdirs-2.6.2.tar.gz", hash = "sha256:e1fea1fe471b9ff8332e229df3cb7de4f53eeea4998d3b6bfff542115e998bd2"},
 ]
-plyer = [
-    {file = "plyer-2.1.0-py2.py3-none-any.whl", hash = "sha256:1b1772060df8b3045ed4f08231690ec8f7de30f5a004aa1724665a9074eed113"},
-    {file = "plyer-2.1.0.tar.gz", hash = "sha256:65b7dfb7e11e07af37a8487eb2aa69524276ef70dad500b07228ce64736baa61"},
-]
 pyinstaller = [
     {file = "pyinstaller-5.7.0-py3-none-macosx_10_13_universal2.whl", hash = "sha256:b967ae71ab7b05e18608dbb4518da5afa54f0835927cb7a5ce52ab8fffed03b6"},
     {file = "pyinstaller-5.7.0-py3-none-manylinux2014_aarch64.whl", hash = "sha256:3180b9bf22263380adc5e2ee051b7c21463292877215bbe70c9155dc76f4b966"},
@@ -824,4 +825,21 @@ urllib3 = [
 webencodings = [
     {file = "webencodings-0.5.1-py2.py3-none-any.whl", hash = "sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78"},
     {file = "webencodings-0.5.1.tar.gz", hash = "sha256:b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"},
+]
+win11toast = [
+    {file = "win11toast-0.32-py3-none-any.whl", hash = "sha256:38ecf6625374cbeebce4f3eda20cef0b2c468fedda23d95d883dfcdac98154a6"},
+    {file = "win11toast-0.32.tar.gz", hash = "sha256:640650374285ef51bcad4453a3404f502e5b746e4a7fd7d974064a73ae808e33"},
+]
+winsdk = [
+    {file = "winsdk-1.0.0b7-cp310-cp310-win32.whl", hash = "sha256:b90367c2fda2f649cf2fa16dd49511d7c74db11fc0abac4a46e773d97fb340e2"},
+    {file = "winsdk-1.0.0b7-cp310-cp310-win_amd64.whl", hash = "sha256:ccff00afe526a77f88b7f32e3a3924f3b7c83f2ea168665af449d2c0acfb4e4f"},
+    {file = "winsdk-1.0.0b7-cp311-cp311-win32.whl", hash = "sha256:e059d13117e6c57e95c6e0b3a6b67b432769b5301b89676a20d76452afdd213b"},
+    {file = "winsdk-1.0.0b7-cp311-cp311-win_amd64.whl", hash = "sha256:a653eca5a0e83f8e35f2d706a67160705ba7ac3200d29684e0821a61b00ab66c"},
+    {file = "winsdk-1.0.0b7-cp37-cp37m-win32.whl", hash = "sha256:141f40a6a7819df0fe9511b7d31bebc7119cb4c643ee695e7069cea198868efc"},
+    {file = "winsdk-1.0.0b7-cp37-cp37m-win_amd64.whl", hash = "sha256:d2b389c3252774e5cef432e0236e7880fff1bff1a237724f9ed1ae0fc2635352"},
+    {file = "winsdk-1.0.0b7-cp38-cp38-win32.whl", hash = "sha256:955421aace349ef26cfc8dccbfaa716917a0f3c5043aaef3b1534ad7efd86bf6"},
+    {file = "winsdk-1.0.0b7-cp38-cp38-win_amd64.whl", hash = "sha256:873ef6fd47f78830ccbe4fc47482056b881c6ae05eaca5ba5ddabef6fe32582e"},
+    {file = "winsdk-1.0.0b7-cp39-cp39-win32.whl", hash = "sha256:0e3a07cbd1d63f046e11e87144a5d7fc592a0baf7518ed90c40d29efe1dd4708"},
+    {file = "winsdk-1.0.0b7-cp39-cp39-win_amd64.whl", hash = "sha256:a49606148b3ecac1860e7fc17d31d7149925c0387c41e85be1c655572a3b24f6"},
+    {file = "winsdk-1.0.0b7.tar.gz", hash = "sha256:51875edb889a94dbe24357277f56270eae0e3a1436acf5e596d36c95aef09977"},
 ]

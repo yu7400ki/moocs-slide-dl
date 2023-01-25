@@ -14,7 +14,7 @@ PyPDF2 = "^3.0.1"
 iniad = {git = "https://github.com/yu7400ki/INIADLib.git", rev = "v0.0.1"}
 PySimpleGUI = "^4.60.4"
 pyinstaller = "^5.7.0"
-plyer = "^2.1.0"
+win11toast = "^0.32"
 
 
 [tool.poetry.group.dev.dependencies]

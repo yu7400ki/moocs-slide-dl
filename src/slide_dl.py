@@ -1,12 +1,15 @@
 import os
+import platform
 import time
 
 import PySimpleGUI as sg
 from iniad import Course, Lecture, Moocs, Page
-from plyer import notification
+from win11toast import toast
 
 from login import LoginPopup
 from utils import dl_slides
+
+APP_NAME = "Moocs Slide Downloader"
 
 text_width = 10
 combo_width = 50
@@ -177,7 +180,9 @@ if __name__ == "__main__":
                         lecture: Lecture = groups[selected_group][selected_lecture]
                         pages = {page.name: page for page in lecture.pages()}
                         window["page"].Update(
-                            values=["All"] + [key for key in pages.keys() if pages[key].slides], disabled=False, value="All"
+                            values=["All"] + [key for key in pages.keys() if pages[key].slides],
+                            disabled=False,
+                            value="All",
                         )
 
             case "page":
@@ -210,12 +215,11 @@ if __name__ == "__main__":
                 )
 
             case "-THREAD ENDED-":
-                notification.notify(
-                    title="Download finished",
-                    message="Download finished",
-                    app_name="Moocs Slide Downloader",
-                    timeout=5,
-                )
+                if platform.system() == "Windows":
+                    window.start_thread(
+                        lambda: toast("Download finished", app_id=APP_NAME, on_click=lambda _: window.BringToFront()),
+                        "-",
+                    )
                 sg.popup("Download finished")
 
             case _:
