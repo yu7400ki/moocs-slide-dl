@@ -7,7 +7,7 @@ from iniad import Course, Lecture, Moocs, Page
 from win11toast import toast
 
 from login import LoginPopup
-from utils import dl_slides
+from utils import DLSlides
 
 APP_NAME = "Moocs Slide Downloader"
 
@@ -94,28 +94,28 @@ def download(selected_course, selected_group, selected_lecture, selected_page, c
         for course in courses.values():
             for lecture in course.lectures():
                 for page in lecture.pages():
-                    dl_slides(page, output)
+                    DLSlides(page, output)
                     time.sleep(1)
     elif selected_group == "All":
         course = courses[selected_course]
         for lecture in course.lectures():
             for page in lecture.pages():
-                dl_slides(page, output)
+                DLSlides(page, output)
                 time.sleep(1)
     elif selected_lecture == "All":
         lectures = groups[selected_group]
         for lecture in lectures.values():
             for page in lecture.pages():
-                dl_slides(page, output)
+                DLSlides(page, output)
                 time.sleep(1)
     elif selected_page == "All":
         lecture = groups[selected_group][selected_lecture]
         for page in lecture.pages():
-            dl_slides(page, output)
+            DLSlides(page, output)
             time.sleep(1)
     else:
         page = pages[selected_page]
-        dl_slides(page, output)
+        DLSlides(page, output)
     window["download"].Update(disabled=False)
 
 
