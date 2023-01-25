@@ -3,6 +3,7 @@ import time
 
 import PySimpleGUI as sg
 from iniad import Course, Lecture, Moocs, Page
+from plyer import notification
 
 from login import LoginPopup
 from utils import dl_slides
@@ -209,6 +210,12 @@ if __name__ == "__main__":
                 )
 
             case "-THREAD ENDED-":
+                notification.notify(
+                    title="Download finished",
+                    message="Download finished",
+                    app_name="Moocs Slide Downloader",
+                    timeout=5,
+                )
                 sg.popup("Download finished")
 
             case _:
