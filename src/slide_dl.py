@@ -176,7 +176,7 @@ if __name__ == "__main__":
                         lecture: Lecture = groups[selected_group][selected_lecture]
                         pages = {page.name: page for page in lecture.pages()}
                         window["page"].Update(
-                            values=["All"] + [key for key in pages.keys()], disabled=False, value="All"
+                            values=["All"] + [key for key in pages.keys() if pages[key].slides], disabled=False, value="All"
                         )
 
             case "page":
