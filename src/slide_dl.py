@@ -80,7 +80,7 @@ layout = [
         sg.FolderBrowse(target="output", size=button_size, font=font),
     ],
     [
-        sg.Output(size=output_size, font=font),
+        sg.MLine(size=output_size, font=font, key="output" + sg.WRITE_ONLY_KEY),
     ],
     [
         sg.Button("Download", size=button_size, font=font, key="download"),
@@ -90,32 +90,53 @@ layout = [
 
 def download(selected_course, selected_group, selected_lecture, selected_page, courses, groups, pages, window, output):
     window["download"].Update(disabled=True)
+    log_area = window["output" + sg.WRITE_ONLY_KEY]
+
     if selected_course == "All":
         for course in courses.values():
             for lecture in course.lectures():
                 for page in lecture.pages():
+                    if len(page.slides) == 0:
+                        continue
+                    log = f"Downloading {page.name} from {lecture.name} in {course.name}"
+                    log_area.print(log)
                     DLSlides(page, output)
                     time.sleep(1)
     elif selected_group == "All":
         course = courses[selected_course]
         for lecture in course.lectures():
             for page in lecture.pages():
+                if len(page.slides) == 0:
+                        continue
+                log = f"Downloading {page.name} from {lecture.name}"
+                log_area.print(log)
                 DLSlides(page, output)
                 time.sleep(1)
     elif selected_lecture == "All":
         lectures = groups[selected_group]
         for lecture in lectures.values():
             for page in lecture.pages():
+                if len(page.slides) == 0:
+                    continue
+                log = f"Downloading {page.name} from {lecture.name}"
+                log_area.print(log)
                 DLSlides(page, output)
                 time.sleep(1)
     elif selected_page == "All":
         lecture = groups[selected_group][selected_lecture]
         for page in lecture.pages():
+            if len(page.slides) == 0:
+                continue
+            log = f"Downloading {page.name}"
+            log_area.print(log)
             DLSlides(page, output)
             time.sleep(1)
     else:
         page = pages[selected_page]
-        DLSlides(page, output)
+        if len(page.slides) > 0:
+            log = f"Downloading {page.name}"
+            log_area.print(log)
+            DLSlides(page, output)
     window["download"].Update(disabled=False)
 
 

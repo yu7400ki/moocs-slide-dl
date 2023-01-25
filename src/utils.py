@@ -44,10 +44,6 @@ class DLSlides:
         with tempfile.TemporaryDirectory(dir=self.out) as self.temp:
             for i, slide in enumerate(self.slides):
                 futures = []
-                if len(self.slides) > 1:
-                    print(f"Writing PDF...({self.page.course} - {self.page.lecture} - {self.page.name} - {i})")
-                else:
-                    print(f"Writing PDF...({self.page.course} - {self.page.lecture} - {self.page.name})")
                 with ThreadPoolExecutor(max_workers=8) as executor:
                     for svg in slide:
                         future = executor.submit(self.svg2pdf, svg)
