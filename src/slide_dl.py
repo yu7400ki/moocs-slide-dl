@@ -84,34 +84,34 @@ layout = [
 ]
 
 
-def download(selected_course, selected_group, selected_lecture, selected_page, courses, groups, pages, window):
+def download(selected_course, selected_group, selected_lecture, selected_page, courses, groups, pages, window, output):
     window["download"].Update(disabled=True)
     if selected_course == "All":
         for course in courses.values():
             for lecture in course.lectures():
                 for page in lecture.pages():
-                    dl_slides(page, output, temp)
+                    dl_slides(page, output)
                     time.sleep(1)
     elif selected_group == "All":
         course = courses[selected_course]
         for lecture in course.lectures():
             for page in lecture.pages():
-                dl_slides(page, output, temp)
+                dl_slides(page, output)
                 time.sleep(1)
     elif selected_lecture == "All":
         lectures = groups[selected_group]
         for lecture in lectures.values():
             for page in lecture.pages():
-                dl_slides(page, output, temp)
+                dl_slides(page, output)
                 time.sleep(1)
     elif selected_page == "All":
         lecture = groups[selected_group][selected_lecture]
         for page in lecture.pages():
-            dl_slides(page, output, temp)
+            dl_slides(page, output)
             time.sleep(1)
     else:
         page = pages[selected_page]
-        dl_slides(page, output, temp)
+        dl_slides(page, output)
     window["download"].Update(disabled=False)
 
 
@@ -187,7 +187,6 @@ if __name__ == "__main__":
                 if not os.path.isdir(output):
                     sg.popup_error("Output directory does not exist")
                     continue
-                temp = os.path.join(output, "temp")
 
                 selected_course: str = values["course"]
                 selected_group: str = values["group"]
@@ -204,6 +203,7 @@ if __name__ == "__main__":
                         groups,
                         pages,
                         window,
+                        output,
                     ),
                     "-THREAD ENDED-",
                 )
