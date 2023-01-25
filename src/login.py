@@ -1,3 +1,5 @@
+import sys
+
 import PySimpleGUI as sg
 from iniad import Moocs
 
@@ -30,7 +32,7 @@ class LoginPopup:
             event, values = window.read()
             match event:
                 case sg.WIN_CLOSED | "Cancel":
-                    exit()
+                    sys.exit()
                 case "Login":
                     try:
                         moocs = Moocs(values["username"], values["password"])
