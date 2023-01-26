@@ -107,7 +107,7 @@ def download(selected_course, selected_group, selected_lecture, selected_page, c
         for lecture in course.lectures():
             for page in lecture.pages():
                 if len(page.slides) == 0:
-                        continue
+                    continue
                 log = f"Downloading {page.name} from {lecture.name}"
                 log_area.print(log)
                 DLSlides(page, output)
