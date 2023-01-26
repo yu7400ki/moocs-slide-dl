@@ -12,7 +12,6 @@ python = ">=3.11,<3.12"
 iniad = {git = "https://github.com/yu7400ki/INIADLib.git", rev = "v0.0.1"}
 PySimpleGUI = "^4.60.4"
 pyinstaller = "^5.7.0"
-win11toast = "^0.32"
 lxml = "^4.9.2"
 
 

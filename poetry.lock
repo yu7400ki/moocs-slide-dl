@@ -285,29 +285,10 @@ brotli = ["brotli (>=1.0.9)", "brotlicffi (>=0.8.0)", "brotlipy (>=0.6.0)"]
 secure = ["certifi", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "ipaddress", "pyOpenSSL (>=0.14)", "urllib3-secure-extra"]
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
-[[package]]
-name = "win11toast"
-version = "0.32"
-description = "Toast notifications for Windows 10 and 11"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-winsdk = "*"
-
-[[package]]
-name = "winsdk"
-version = "1.0.0b7"
-description = "Python bindings for the Windows SDK"
-category = "main"
-optional = false
-python-versions = "*"
-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.11,<3.12"
-content-hash = "6ce4d28675063c702a1bb8e877ec02e928f428ee5fa826a56b49d4e4e1800947"
+content-hash = "e8fd7eb5ef54d2947017a108d72d5f2d143c05114410596c38a1e7627f430529"
 
 [metadata.files]
 altgraph = [
@@ -585,21 +566,4 @@ soupsieve = [
 urllib3 = [
     {file = "urllib3-1.26.14-py2.py3-none-any.whl", hash = "sha256:75edcdc2f7d85b137124a6c3c9fc3933cdeaa12ecb9a6a959f22797a0feca7e1"},
     {file = "urllib3-1.26.14.tar.gz", hash = "sha256:076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"},
-]
-win11toast = [
-    {file = "win11toast-0.32-py3-none-any.whl", hash = "sha256:38ecf6625374cbeebce4f3eda20cef0b2c468fedda23d95d883dfcdac98154a6"},
-    {file = "win11toast-0.32.tar.gz", hash = "sha256:640650374285ef51bcad4453a3404f502e5b746e4a7fd7d974064a73ae808e33"},
-]
-winsdk = [
-    {file = "winsdk-1.0.0b7-cp310-cp310-win32.whl", hash = "sha256:b90367c2fda2f649cf2fa16dd49511d7c74db11fc0abac4a46e773d97fb340e2"},
-    {file = "winsdk-1.0.0b7-cp310-cp310-win_amd64.whl", hash = "sha256:ccff00afe526a77f88b7f32e3a3924f3b7c83f2ea168665af449d2c0acfb4e4f"},
-    {file = "winsdk-1.0.0b7-cp311-cp311-win32.whl", hash = "sha256:e059d13117e6c57e95c6e0b3a6b67b432769b5301b89676a20d76452afdd213b"},
-    {file = "winsdk-1.0.0b7-cp311-cp311-win_amd64.whl", hash = "sha256:a653eca5a0e83f8e35f2d706a67160705ba7ac3200d29684e0821a61b00ab66c"},
-    {file = "winsdk-1.0.0b7-cp37-cp37m-win32.whl", hash = "sha256:141f40a6a7819df0fe9511b7d31bebc7119cb4c643ee695e7069cea198868efc"},
-    {file = "winsdk-1.0.0b7-cp37-cp37m-win_amd64.whl", hash = "sha256:d2b389c3252774e5cef432e0236e7880fff1bff1a237724f9ed1ae0fc2635352"},
-    {file = "winsdk-1.0.0b7-cp38-cp38-win32.whl", hash = "sha256:955421aace349ef26cfc8dccbfaa716917a0f3c5043aaef3b1534ad7efd86bf6"},
-    {file = "winsdk-1.0.0b7-cp38-cp38-win_amd64.whl", hash = "sha256:873ef6fd47f78830ccbe4fc47482056b881c6ae05eaca5ba5ddabef6fe32582e"},
-    {file = "winsdk-1.0.0b7-cp39-cp39-win32.whl", hash = "sha256:0e3a07cbd1d63f046e11e87144a5d7fc592a0baf7518ed90c40d29efe1dd4708"},
-    {file = "winsdk-1.0.0b7-cp39-cp39-win_amd64.whl", hash = "sha256:a49606148b3ecac1860e7fc17d31d7149925c0387c41e85be1c655572a3b24f6"},
-    {file = "winsdk-1.0.0b7.tar.gz", hash = "sha256:51875edb889a94dbe24357277f56270eae0e3a1436acf5e596d36c95aef09977"},
 ]

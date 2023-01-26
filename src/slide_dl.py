@@ -1,15 +1,11 @@
 import os
-import platform
 import time
 
 import PySimpleGUI as sg
 from iniad import Course, Lecture, Moocs, Page
-from win11toast import toast
 
 from login import LoginPopup
 from utils import DLSlides
-
-APP_NAME = "Moocs Slide Downloader"
 
 text_width = 10
 combo_width = 50
@@ -236,11 +232,6 @@ if __name__ == "__main__":
                 )
 
             case "-THREAD ENDED-":
-                if platform.system() == "Windows":
-                    window.start_thread(
-                        lambda: toast("Download finished", app_id=APP_NAME, on_click=lambda _: window.BringToFront()),
-                        "-",
-                    )
                 sg.popup("Download finished")
 
             case _:
