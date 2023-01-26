@@ -24,7 +24,7 @@ def ext(b: bytes) -> str:
 
 def fix(name: str) -> str:
     ban = ["\\", "/", ":", "*", "?", '"', "<", ">", "|"]
-    return "".join([c for c in name if c not in ban])
+    return "".join([c for c in name if c not in ban]).strip()
 
 
 @dataclass
