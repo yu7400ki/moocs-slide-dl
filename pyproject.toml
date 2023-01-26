@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "moocs-slide-dl"
-version = "0.0.1"
+version = "0.0.2"
 description = "INIAD Moocsからスライドをダウンロードするツール"
 authors = ["yu7400ki <yu7400ki@gmail.com>"]
 readme = "README.md"
