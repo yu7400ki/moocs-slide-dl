@@ -38,7 +38,7 @@ class DLSlides:
         self.write = os.path.join(self.out, fix(self.page.course), fix(self.page.group), fix(self.page.lecture))
         os.makedirs(self.write, exist_ok=True)
         self.slides = list(self.page.slides2svg())
-        page_num = re.match(r"/courses/\d+/.+?/.+?/(\d+)", self.page.prefix).group(1)
+        page_num = re.match(r"/courses/\d+/.+?/.+?/(.+)", self.page.prefix).group(1)
 
         with tempfile.TemporaryDirectory(dir=self.out) as self.temp:
             for i, slide in enumerate(self.slides):
