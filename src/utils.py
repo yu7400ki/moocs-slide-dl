@@ -1,5 +1,6 @@
 import base64
 import os
+import re
 import tempfile
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
@@ -37,6 +38,7 @@ class DLSlides:
         self.write = os.path.join(self.out, fix(self.page.course), fix(self.page.group), fix(self.page.lecture))
         os.makedirs(self.write, exist_ok=True)
         self.slides = list(self.page.slides2svg())
+        page_num = re.match(r"/courses/\d+/.+?/.+?/(\d+)", self.page.prefix).group(1)
 
         with tempfile.TemporaryDirectory(dir=self.out) as self.temp:
             for i, slide in enumerate(self.slides):
@@ -56,7 +58,7 @@ class DLSlides:
                     section.append(result)
                     slide_elm.append(section)
                 html = str(template_soup)
-                path = os.path.join(self.write, f"{title}.html")
+                path = os.path.join(self.write, f"{page_num} - {title}.html")
                 with open(path, "w", encoding="UTF-8") as f:
                     f.write(html)
 
